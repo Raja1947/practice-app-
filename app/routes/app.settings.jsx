@@ -15,21 +15,37 @@ import { useState } from "react";
 import { Form, useLoaderData } from "@remix-run/react";
 import {json } from "@remix-run/node"
 
+//  import prisma from "../db.server";
 
 
-export async function loader(){
-//get data from the database
-let settings={
-  name:"My App",
-  description:"This is my app"
-}
-return json(settings)
-}
+// import db from prisma 
+
+// export async function loader(){
+// //get data from the database
+//  let settings =await prisma.settings.findFirst()
+// return json(settings)
+// }
 export async function action({request}){
-  // return json({message:"Settings done"})
-  let settings=await request.formData();
-  settings=Object.fromEntries(settings);
-  return json(settings)
+  // // return json({message:"Settings done"})
+  // let settings=await request.formData();
+  // settings=Object.fromEntries(settings);
+
+  // updatre db
+  // await db.settings.upsert({
+  //   where:{
+  //     id:"1"
+  //   },
+  //   update:{
+  //     name:settings.name,
+  //     description:settings.description
+  //   },
+  //   create:{
+      
+  //     name:settings.name,
+  //     description:settings.description
+  //   }
+  // })
+  // return json(settings)
 
 
 }

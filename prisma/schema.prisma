@@ -30,8 +30,15 @@ model Session {
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
 }
-model Setting{
-  id String     @id
-  name String
-  description String
+model Settings{
+  id             String     @id
+  name           String
+  description    String
+}
+
+model wishlist{
+  id            String @ id
+  customerId    String
+  productId     String
+  createdAt     DateTime @default(now())
 }
