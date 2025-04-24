@@ -15,6 +15,7 @@ module.exports = {
   ignoredRouteFiles: ["**/.*"],
   appDirectory: "app",
   serverModuleFormat: "cjs",
+  serverDependenciesToBundle: [/^remix-utils.*/],//Add this line
   dev: { port: process.env.HMR_SERVER_PORT || 8002 },
   future: {},
 };

@@ -3,7 +3,7 @@
 client_id = "3862090451cefaa6d00541777c15ba35"
 name = "first-app"
 handle = "first-app-1477"
-application_url = "https://bags-normal-useful-nest.trycloudflare.com"
+application_url = "https://tramadol-ro-potato-helicopter.trycloudflare.com"
 embedded = true
 
 [build]
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://bags-normal-useful-nest.trycloudflare.com/auth/callback",
-  "https://bags-normal-useful-nest.trycloudflare.com/auth/shopify/callback",
-  "https://bags-normal-useful-nest.trycloudflare.com/api/auth/callback"
+  "https://tramadol-ro-potato-helicopter.trycloudflare.com/auth/callback",
+  "https://tramadol-ro-potato-helicopter.trycloudflare.com/auth/shopify/callback",
+  "https://tramadol-ro-potato-helicopter.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

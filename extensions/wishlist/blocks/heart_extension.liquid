@@ -1,4 +1,7 @@
-<div class="heart_icon" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 3px;">
+<div
+  class="heart_icon"
+  style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 3px;"
+>
   <div id="heartButton" style="width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;">
     <svg
       id="heartIcon"
@@ -21,12 +24,41 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     let wishlisted = false;
+   const appUrl="https://tramadol-ro-potato-helicopter.trycloudflare.com"
     const heartIcon = document.getElementById("heartIcon");
 
     function addToWishList() {
       wishlisted = !wishlisted;
-      console.log("wishlisted", wishlisted);
+      {% unless customer%}
+        alert("Please log in to add items to your wishlist.");
+      {% else %}
+        alert("Item added to wishlist.");
       
+
+        {%  endunless %}
+      console.log("wishlisted", wishlisted);
+
+      var formData=new FormData();
+      formData.append("customerId", "{{ customer.id }}")
+      formData.append("productId", "{{ product.id }}");
+      formData.append("action","CREATE")
+
+      var requestOptions={
+      method:"POST",
+
+      body:formData,
+      mode:'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*" 
+      
+    }
+      };
+      fetch(appUrl+"/api/wishlist", requestOptions)
+      .then(response=>response.text())
+      .catch(err=>console.log("error",err))
+
+
     }
 
     heartIcon.addEventListener("click", addToWishList);
@@ -55,10 +87,8 @@
       "type": "color",
       "id": "colour",
       "label": "Heart Icon",
-      "default": "#FF0000",
+      "default": "#FF0000"
     }
   ]
 }
 {% endschema %}
-
-
